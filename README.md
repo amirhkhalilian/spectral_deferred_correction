@@ -1,25 +1,15 @@
 # Spectral Deferred Correction for Non-stiff ODEs
 
-This project implements the **Spectral Deferred Correction (SDC)** method for solving non-stiff ordinary differential equations (ODEs). The method enhances the accuracy of low-order solvers using deferred corrections over Chebyshev nodes, achieving high-order accuracy in a computationally efficient manner.
+This project implements the **Spectral Deferred Correction (SDC)** method for solving non-stiff ordinary differential equations (ODEs). The method enhances the accuracy of low-order solvers using deferred corrections over Chebyshev nodes [DGR00], achieving high-order accuracy in a computationally efficient manner.
 
 ## 📘 Overview
 
-Traditional solvers like Runge-Kutta face stability or cost limitations at high orders. Spectral Deferred Correction (SDC), introduced in [Dutt, Greengard, Rokhlin 2000], is an iterative scheme that accelerates low-order methods through correction sweeps applied to the Picard integral formulation of the ODE using spectral integration on Chebyshev grids.
+Traditional solvers like Runge-Kutta face stability or cost limitations at high orders. Spectral Deferred Correction (SDC), introduced in [DGR00], is an iterative scheme that accelerates low-order methods through a correction sweep. The details and background are explained in sdc_method.pdf.
 
 This repo includes:
 - An implementation of the SDC method with **fixed and adaptive step-size**.
 - Utilities for **spectral integration** using Chebyshev polynomials and FFT.
 - Numerical experiments demonstrating convergence and accuracy.
-
-## 🧠 Key Features
-
-- Spectral integration using Chebyshev nodes and FFT.
-- Implementation of SDC for both fixed and adaptive step sizes.
-- Convergence control via Chebyshev coefficient decay and correction residuals.
-- Test problems including:
-  - A third-order linear ODE.
-  - Jacobi elliptic function system.
-
 
 ## 📈 Results
 
@@ -34,13 +24,7 @@ This repo includes:
 
 ## 🚀 Getting Started
 
-1. Clone this repository:
-    ```bash
-    git clone https://github.com/yourusername/sdc-nonstiff-ode.git
-    cd sdc-nonstiff-ode/Code
-    ```
-
-2. Run a demo:
+1. Run a demo:
     ```matlab
     % Fixed step-size demo
     Demo_SDC_IVP;
@@ -49,9 +33,9 @@ This repo includes:
     Demo_SDCA_ellipj;
     ```
 
-3. Modify `FE_SDC_solver.m` for custom ODEs or options.
+2. Modify `FE_SDC_solver.m` for custom ODEs or options.
 
-## ⚙️ Solver Options
+### ⚙️ Solver Options
 
 You can configure the solver via the `opts` struct:
 
@@ -68,10 +52,6 @@ You can configure the solver via the `opts` struct:
 
 [DGR00] Dutt, A., Greengard, L., & Rokhlin, V. (2000). *Spectral deferred correction methods for ordinary differential equations*. BIT Numerical Mathematics, 40(2), 241–266.
 
-## 🧑‍💻 Author
-
-**Amir Khalilian**  
-NYU | akg404@nyu.edu
 
 
 
